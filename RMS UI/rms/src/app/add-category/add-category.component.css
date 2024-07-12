@@ -1,0 +1,11 @@
+.form-container {
+    border: 2px solid #000;
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }

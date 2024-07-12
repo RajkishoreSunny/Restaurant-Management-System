@@ -1,0 +1,3 @@
+insert into RestaurantManagement.dbo.MenuCategories
+values('Gujarati Cuisine', 'Authentic  Taste from the land of Gujarat.', 
+(SELECT * FROM OPENROWSET(BULK N'C:\Users\RASUNNY\OneDrive - Capgemini\Documents\Restaurant Management System\Images\rmsimages(1).jpeg', SINGLE_BLOB) as Image));

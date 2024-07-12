@@ -1,0 +1,14 @@
+<body>
+    <div class="container">
+        <h1 style="color: lightseagreen;">Our Outlets</h1>
+        <div class="tile" *ngFor="let restaurant of restaurantDetails">
+            <h2>{{ restaurant.name }}</h2>
+            <p class="address">{{ restaurant.address }}</p>
+            <p class="phone">Phone: (+91) {{ restaurant.phoneNo }}</p>
+            <p class="hours">Opening Time: {{ restaurant.openingTime | date: 'shortTime' }}</p>
+        </div>
+        <div class="container d-flex justify-content-center">
+            More Outlets Coming Soon...
+        </div>
+    </div>
+</body>

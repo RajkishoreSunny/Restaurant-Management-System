@@ -1,0 +1,36 @@
+<div class="container mt-3">
+    <h2 class="text-success d-flex justify-content-center">Add Menu Items</h2>
+    <div class="card">
+      <div class="card-body">
+        <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm.value)">
+          <div class="form-group">
+            <label for="categoryId">Category ID:</label>
+            <input type="text" class="form-control" id="categoryId" name="categoryId" required [(ngModel)]="menuItems.categoryId">
+          </div>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="menuItems.name">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" required [(ngModel)]="menuItems.description"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" name="price" required [(ngModel)]="menuItems.price">
+          </div>
+          <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="number" class="form-control" id="rating" name="rating" required [(ngModel)]="menuItems.rating" min="0" max="5" step="0.1">
+          </div>
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="categoryForm.invalid">Submit</button>
+        </form>
+        <div class="form-group" enctype="multipart/form-data">
+            <label for="categoryImage">Item Image:</label>
+            <input type="file" class="form-control" id="itemImage" name="itemImage" (change)="onImageSelected($event)" required>
+            <button class="btn btn-primary" (click)="uploadImage()">Upload Image</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center mt-2">
+    <h2 style="color: red;">Explore Your Favourite Cuisines!</h2>
+</div>
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mt-2" *ngFor="let category of categoryItems">
+                <div class="card mb-4" style="width: 400px; height: 400px;">
+                    <img [src]="category.categoryImg ? getImagePath(category.categoryImg) : ''" class="card-img-top" [alt]="category.categoryName" style="height: 250px; width: 400px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ category.categoryName }}</h5>
+                        <p class="card-text">{{ category.description }}</p>
+                        <a (click)="routeToItem(category.categoryId)" class="btn btn-danger mb-1" style="color: black;">Explore</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+  </div>

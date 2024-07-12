@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-1" style="color: red; font-style: italic; font-size: 30px; font-weight: bolder;">Raj Restaurant</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav" style="margin-left: 50px; font-weight: bold; font-size: 20px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="">HOME</a>
+          </li>
+          <li class="nav-item ms-2">
+            <a class="nav-link" routerLink="/about">ABOUT</a>
+          </li>
+          <li class="nav-item ms-2">
+            <ng-container *ngIf="!isLogin && !isManagerLoggedIn">
+              <a class="nav-link" [routerLink]="['/login']">SIGNIN</a>
+            </ng-container>
+          </li>
+          <li class="nav-item ms-2">
+            <ng-container *ngIf="isLogin">
+              <a class="nav-link" (click)="logout()">LOGOUT</a>
+            </ng-container>
+          </li>
+          <li class="nav-item ms-2">
+            <ng-container *ngIf="isManagerLoggedIn">
+              <a class="nav-link" (click)="logoutManager()">LOGOUT</a>
+            </ng-container>
+          </li>
+          <li class="nav-item dropdown ms-1">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU CATEGORY
+            </a>
+            <ul class="dropdown-menu">
+              <li *ngFor="let category of categoryArray">
+                <a class="dropdown-item" (click)="fetchMenuItem(category.categoryId)">{{ category.categoryName }}</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-1">
+            <a class="nav-link" (click)="bookTable()" >BOOKTABLE</a>
+          </li>
+          <ng-container *ngIf="isLogin">
+            <li class="nav-item ms-1">
+              <a class="nav-link" routerLink="/profile" >PROFILE</a>
+            </li>
+          </ng-container>
+        </ul>
+        <nav class="navbar bg-body-tertiary ms-3">
+          <div class="container-fluid">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+              id="Search" [value]="searchTerm" (input)="handleInputChange($event)">
+              <button class="btn btn-outline-success" (click)="handleSearch()" type="submit">Search</button>
+            </form>
+            <ul class="suggestions-list">
+              <li *ngFor="let search of searchResults" (click)="getToItem(search.menuId)">
+                {{ search.name }}
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </nav>

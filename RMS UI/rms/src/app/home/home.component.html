@@ -1,0 +1,75 @@
+<header>
+  <section class="headmsg mt-3 mb-3 d-flex justify-content-center">
+    !!Welcome to Raj's Restaurant!!
+  </section>
+    <section class="carousel">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="assets/res1.jpeg" class="d-block w-100" alt="RestaurantImg1" style="height: 700px; width: 200px; margin-left: 2px;">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/res2.jpeg" class="d-block w-100" alt="RestaurantImg2" style="height: 700px; width: 200px; margin-left: 2px;">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/res3.jpeg" class="d-block w-100" alt="RestaurantImg3" style="height: 700px; width: 200px; margin-left: 2px;">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+    <section class="d-flex justify-content-center mt-3 mb3">
+      <h2 style="color: #A000ff;" class="fav">Your Favourite Cuisines!</h2>
+    </section>
+    <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-md-4 mt-2" *ngFor="let category of categoryItems.slice(0, 3)">
+                  <div class="card mb-4" style="width: 400px; height: 400px;">
+                      <img [src]="category.categoryImg ? getImagePath(category.categoryImg) : ''" class="card-img-top" [alt]="category.categoryName" style="height: 250px; width: 400px;">
+                      <div class="card-body">
+                          <h5 class="card-title">{{ category.categoryName }}</h5>
+                          <p class="card-text">{{ category.description }}</p>
+                          <a (click)="routeToMenuItem(category.categoryId)" class="btn btn-danger mb-1" style="color: black;">Explore</a>
+                      </div>
+                  </div>
+          </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <a href="/menucategory">Explore More Cuisines...</a>
+    </div>
+  
+  
+</header>
+<footer class="footer bg-danger text-light mt-2">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 mt-2">
+              <h5 style="color: black;">About Us</h5>
+              <p style="color: black;">Raj Restaurant! A perfect place for all your eating plans. A taste made in heaven!</p>
+          </div>
+          <div class="col-md-6 mt-2">
+              <h5 style="color: black;">Contact Us</h5>
+              <ul class="list-unstyled">
+                  <li style="color: black;">Email: rajkishoresunny4590&#64;gmail.com</li>
+                  <li style="color: black;">Phone: +91 9876543210</li>
+                  <li style="color: black;">Head Branch Address: Henjewadi Phase 1, Pune, India</li>
+              </ul>
+          </div>
+      </div>
+      <hr>
+      <div class="row">
+          <div class="col-md-12 text-center">
+              <p style="color: black;">&copy; 2024 rajrestaurant.com. All rights reserved.</p>
+          </div>
+      </div>
+  </div>
+</footer>
+

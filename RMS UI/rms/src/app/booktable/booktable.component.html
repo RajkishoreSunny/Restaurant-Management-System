@@ -1,0 +1,35 @@
+<div class="table-list">
+    <div class="container mt-1" style="color:hotpink">
+      <h2>List Of Tables</h2>
+      <div class="d-flex justify-content-between">
+        <div></div>
+          <div class="filter-section">
+            <a href="javascript:void(0)" (click)="getAvailableTables()">Show only Available Tables</a>
+          </div>
+      </div>
+      <div class="row">
+        <ng-container *ngFor="let table of tableList">
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-header">
+                  <h5 class="card-title">{{ table.tableId }}</h5>
+              </div>
+              <div class="card-body">
+                <p class="card-text">Capacity: {{ table.seatingCapacity }}</p>
+                <input type="datetime-local" id="dateTimeInput" [(ngModel)]="currDate" name="dateTimeInput">
+                <p class="card-text" [ngClass]="{ 'text-success': isAvailable(table), 'text-danger': !isAvailable(table) }">
+                    Status: {{ table.status }}
+                </p>
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-primary" (click)="navigateToPayment(table.seatingCapacity, table.status)">Reserve</button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
+  
+  

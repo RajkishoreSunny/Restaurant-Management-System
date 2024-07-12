@@ -1,0 +1,13 @@
+<body>
+    <div class="profile-card">
+        <div class="profile-header">
+            <h2 class="profile-name">{{ customer.customerName }}</h2>
+        </div>
+        <div class="profile-details">
+            <p><strong>Email:</strong> {{ customer.customerEmail }} </p>
+            <p><strong>Phone Number:</strong> {{ customer.customerPhone }} </p>
+            <p><strong>Address:</strong> {{ customer.customerAddress }} </p>
+            <a routerLink="/pastorders">View Past Orders</a>
+        </div>
+    </div>
+</body>

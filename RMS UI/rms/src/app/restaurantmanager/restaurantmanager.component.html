@@ -1,0 +1,72 @@
+<div class="container">
+    <h1 class="text-danger">Welcome, {{ name }}</h1>
+    
+    <div id="section1" class="table-section">
+        <h3>Update Table</h3>
+        <table *ngFor="let table of tables">
+            <thead>
+                <tr>
+                    <th>Table Id</th>
+                    <th>Seating Capacity</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ table.tableId }}</td>
+                    <td>{{ table.seatingCapacity }}</td>
+                    <td>{{ table.status }}</td>
+                    <td>
+                        <button class="btn btn-update" (click)="selectTable(table)">Update</button>
+                        <button class="btn btn-delete">Delete</button>
+                        <button class="btn btn-update" (click)="updateStatus(table.tableId)">Update Status to Available</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="selectedTable" class="update-form mt-2 mb-2">
+        <h3>Update Row</h3>
+        <form (ngSubmit)="updateTable()">
+          <div>
+            <label for="seatingCapacity" class="mx-2">Seating Capacity</label>
+            <input id="seatingCapacity" type="number" [(ngModel)]="selectedTable.seatingCapacity" name="seatingCapacity" class="rounded-input">
+          </div>
+          <div>
+            <label for="status" class="mx-2">Status</label>
+            <input id="status" type="text" [(ngModel)]="selectedTable.status" name="status" class="rounded-input">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-save">Save</button>
+            <button type="button" class="btn btn-cancel" (click)="cancelUpdate()">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+    <div id="section2" class="table-section">
+        <h3>Menu Category</h3>
+        <table *ngFor="let category of categories">
+            <thead>
+                <tr>
+                    <th>Category Id</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ category.categoryId }}</td>
+                    <td>{{ category.categoryName }}</td>
+                    <td>{{ category.description }}</td>
+                    <img [src]="category.categoryImg ? getImagePath(category.categoryImg) : ''" class="card-img-top" [alt]="category.categoryName" style="height: 100px; width: 100px;">
+                </tr>
+            </tbody>
+        </table>
+        <a routerLink="/addcategory">Add Category</a><br>
+        <a routerLink="/addmenu">Add Menu Item</a>
+    </div>
+</div>
+

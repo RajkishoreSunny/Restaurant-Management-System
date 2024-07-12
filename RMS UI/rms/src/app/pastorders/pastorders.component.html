@@ -1,0 +1,17 @@
+<body>
+    <div class="orders-container">
+        <div class="order-card" *ngFor="let orders of listOfPastOrders">
+            <div class="order-info">
+                <p class="order-date">{{ orders.orderDate | date:'d MMMM yyyy' }}</p>
+                <p class="total-price">Total Price: ₹ {{ orders.totalPrice }} </p>
+            </div>
+            <div class="item-details">
+                <img [src]="orders.itemImg ? getImg(orders.itemImg) : ''" [alt]="orders.name" class="item-image">
+                <div class="item-info">
+                    <h3 class="item-name">{{ orders.name }}</h3>
+                    <p class="quantity">Quantity: {{ orders.quantity }} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

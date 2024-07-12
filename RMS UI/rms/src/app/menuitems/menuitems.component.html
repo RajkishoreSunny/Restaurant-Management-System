@@ -1,0 +1,28 @@
+<div class="list-view mt-2">
+    <div *ngFor="let item of menuItems">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4 overflow-hidden d-flex justify-content-center align-items-center">
+                        <img [src]="item.itemImg ? getImg(item.itemImg) : ''" class="img-fluid rounded-start" [alt]="item.name" style="height: 250px; width: 300px;" />
+                        </div>
+                        <div class="col d-flex flex-column">
+                            <div class="card-header text-center fw-bold fs-5 text-black">
+                                {{ item.name }}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title title fw-semibold text-warning">{{ item.name }}</h5>
+                                <p class="card-text description text-secondary fw-bold">{{  item.description }}</p>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="card-title text-success">
+                                    Price: ₹ <span class="text-primary">{{ item.price }}</span>
+                                </h2>
+                    </div>
+                    <div class="card-footer text-muted d-grid gap-2">
+                        <button (click)="routeToMenuItem(item.menuId)" class="btn btn-outline-danger order-button" type="button">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>

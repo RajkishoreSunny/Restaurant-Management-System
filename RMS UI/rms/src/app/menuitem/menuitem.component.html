@@ -1,0 +1,34 @@
+<div class="list-view mt-2">
+        <div class="card">
+            <div class="row g-0">
+                <div class="col-md-4 overflow-hidden d-flex justify-content-center align-items-center">
+                        <img [src]="menuItem.itemImg ? getImg(menuItem.itemImg) : ''" class="img-fluid rounded-start" [alt]="menuItem.name" style="height: 250px; width: 300px;" />
+                        </div>
+                        <div class="col d-flex flex-column">
+                            <div class="card-header text-center fw-bold fs-5 text-black">
+                                {{ menuItem.name }}
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title title fw-semibold text-warning">{{ menuItem.name }}</h5>
+                                <p class="card-text description text-secondary fw-bold">{{  menuItem.description }}</p>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="card-title text-success">
+                                    Price: ₹ <span class="text-primary">{{ menuItem.price }}</span>
+                                </h2>
+                    </div>
+                    <div class="card-footer text-muted d-grid gap-2">
+                        <h3 class="text-primary">Quantity</h3>
+                        <div class="quantity-control">
+                            <button (click)="decrease()" class="quantity-control-button">-</button>
+                            <span id="quantity" class="quantity-value">{{ quantity }}</span>
+                            <button (click)="increase()" class="quantity-control-button">+</button>
+                        </div>
+                        <button (click)="addOrder(menuItem)" class="btn btn-outline-danger order-button" type="button">Order</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+

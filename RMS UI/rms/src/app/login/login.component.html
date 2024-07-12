@@ -1,0 +1,22 @@
+<div class="containerclass">
+    <div class="login-container">
+        <h2>Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" class="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required formControlName="email" placeholder="Enter Email...">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input *ngIf="!isPasswordVisible" type="password" id="password" name="password" required formControlName="password" placeholder="Enter Password..." class="mx-1">
+                <input *ngIf="isPasswordVisible" type="text" id="password" name="password" required formControlName="password" placeholder="Enter Password..." class="mx-1">
+                <i [ngClass]="isPasswordVisible ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'" (click)="togglePasswordVisibility()"></i>
+            </div>
+            <a routerLink="/register">Register here</a><br>
+            <a routerLink="/mlogin">Manager Login Here</a>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>

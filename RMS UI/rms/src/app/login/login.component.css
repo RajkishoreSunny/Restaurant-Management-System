@@ -1,0 +1,60 @@
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+.containerclass{
+    background-color: aquamarine;
+    height: 100%;
+}
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .loginForm {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    font-family: serif;
+    font-weight: bold;
+    margin-top: 60px;
+    color: rgb(248, 26, 92);
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-size: larger;
+    margin-bottom: 10px;
+    font-family: serif;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 90%; 
+    margin-bottom: 10px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #12D311;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button[type="submit"] :hover{
+    background-color: #0056b3;
+  }
+  
+
+
+
+
+
